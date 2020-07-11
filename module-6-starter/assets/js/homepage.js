@@ -5,8 +5,8 @@ var repoSearchTerm = document.querySelector("#repo-search-term");
 
 
 
-var response = fetch("https://api.github.com/users/octocat/repos");
-    console.log(response);
+// var response = fetch("https://api.github.com/users/octocat/repos");
+//     console.log(response);
 
 var getUserRepos = function(user) {
     // format the github api url
@@ -41,7 +41,6 @@ var formSubmitHandler = function(event) {
     else {
         alert("please enter a GitHub username");
     }
-    console.log(event);
 };
 
 userformEl.addEventListener("submit",formSubmitHandler);
@@ -60,7 +59,7 @@ var displayRepos = function(repos, searchTerm) {
         // create a container for each repo
         var repoEl = document.createElement("a");
         repoEl.classList = "list-item flex-row justify-space-between align-center";
-        repoEl.setAttribute("href", "./single-repo.html");
+        repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
         // create a span element to hold repository name
         var titleEl = document.createElement("span");
         titleEl.textContent = repoName;
